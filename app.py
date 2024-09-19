@@ -1,4 +1,5 @@
 import os
+import fitz
 from dotenv import load_dotenv
 import streamlit as st
 from langchain_community.document_loaders import PyMuPDFLoader
