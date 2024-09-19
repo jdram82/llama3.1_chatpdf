@@ -1,5 +1,4 @@
 import os
-import torch
 from dotenv import load_dotenv
 import streamlit as st
 from langchain_community.document_loaders import PyMuPDFLoader
