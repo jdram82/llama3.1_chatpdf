@@ -1,0 +1,13 @@
+python-dotenv==1.0.1
+streamlit==1.37.0
+langchain-community==0.2.10
+langchain-text-splitters==0.2.2
+langchain-groq==0.1.9
+unstructured==0.15.0
+unstructured[pdf]==0.15.0
+faiss-cpu==1.8.0.post1
+transformers==4.43.3
+sentence-transformers==3.1.1
+nltk==3.8.1
+pdfminer.six== 20231228
+pillow_heif== 0.18.0
