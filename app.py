@@ -16,6 +16,13 @@ load_dotenv()
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Initialize session state for vectorstore and conversation_chain
+if "vectorstore" not in st.session_state:
+    st.session_state.vectorstore = None
+
+if "conversation_chain" not in st.session_state:
+    st.session_state.conversation_chain = None
+
 def load_document(file_path):
     try:
         loader = PyMuPDFLoader(file_path)
@@ -80,12 +87,12 @@ if uploaded_file:
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
 
-    if "vectorstore" not in st.session_state:
+    if st.session_state.vectorstore is None:
         documents = load_document(file_path)
         if documents:
             st.session_state.vectorstore = setup_vectorstore(documents)
 
-    if "conversation_chain" not in st.session_state:
+    if st.session_state.conversation_chain is None:
         if st.session_state.vectorstore:
             st.session_state.conversation_chain = create_chain(st.session_state.vectorstore)
 
